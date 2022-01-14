@@ -40,6 +40,9 @@ class FormFragment : Fragment() {
                 bundle.putString("First", firstNameEt.editText?.text.toString())
                 bundle.putString("Last", lastNameEt.editText?.text.toString())
 
+
+
+
                 // FragmentManger allows us to perform transaction.
                 // Use replace to switch between fragments.
                 parentFragmentManager.beginTransaction()

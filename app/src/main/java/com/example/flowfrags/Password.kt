@@ -10,6 +10,11 @@ import com.example.flowfrags.databinding.PasswordBinding
 
 class Password :Fragment() {
 
+    private var first = ""
+    private var last  = ""
+    private var email  = ""
+
+
     private  var _binding: PasswordBinding? = null
     private  val binding: PasswordBinding get() = _binding!!
 
@@ -27,17 +32,31 @@ class Password :Fragment() {
         with(binding) {
             passwordEt.editText?.addTextChangedListener { text ->
                 nextBtnPassword.isEnabled = text.toString().length > 1
+
+                first  = arguments?.getString("First") ?: "First"
+                last = arguments?.getString("Last" ) ?: "Last"
+                email = arguments?.getString("Email" ) ?: "Email"
             }
 
             nextBtnPassword.setOnClickListener{
                 val bundle = Bundle()
                 bundle.putString("Password", passwordEt.editText?.text.toString())
+                bundle.putString("First",first)
+                bundle.putString("Last",last)
+                bundle.putString("Email",email)
+
+
+
+
+
+
 
 
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container_view, InfoFragment::class.java, bundle)
                     .addToBackStack(null)
                     .commit()
+
 
             }
         }

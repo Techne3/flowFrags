@@ -7,11 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.flowfrags.databinding.EmailBinding
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
 
 class Email : Fragment() {
 
+
+
     private  var _binding: EmailBinding? = null
     private  val binding: EmailBinding get() = _binding!!
+
+    private var first = ""
+    private var last = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,11 +33,16 @@ class Email : Fragment() {
         with(binding) {
             emailEt.editText?.addTextChangedListener { text ->
                 nextBtnEmail.isEnabled = text.toString().length > 1
+
+                first  = arguments?.getString("First") ?: "First"
+                last = arguments?.getString("Last" ) ?: "Last"
             }
 
             nextBtnEmail.setOnClickListener{
-                val bundle = Bundle()
+                val bundle =  Bundle()
                 bundle.putString("Email", emailEt.editText?.text.toString())
+                bundle.putString("First",first)
+                bundle.putString("Last",last)
 
 
                 parentFragmentManager.beginTransaction()

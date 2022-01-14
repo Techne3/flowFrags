@@ -33,14 +33,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?textAppearanceHeadline2"
-        app:layout_constraintBottom_toTopOf="@id/passWordTv"
+        app:layout_constraintBottom_toTopOf="@id/passwordTv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lastNameTv"
         tools:text="email" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/passWordTv"
+        android:id="@+id/passwordTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?textAppearanceHeadline2"
